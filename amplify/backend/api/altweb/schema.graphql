@@ -1,0 +1,7 @@
+type Meeting @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  meetingDate: AWSTime
+  speaker: String
+  title: String
+  description: String
+}
