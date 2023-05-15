@@ -4,17 +4,17 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import screenshotContacts from '@/images/screenshots/contacts.png'
-import screenshotInventory from '@/images/screenshots/inventory.png'
+import zoom from '@/images/club/alternative-investment-club-photo.png'
+import speakercollage from '@/images/club/reic-speaker-collage.jpg'
 import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
 
 const features = [
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: 'Financial Education',
+    summary: 'Stay on top of things with expert speakers and influencers',
     description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
-    image: screenshotProfitLoss,
+      'The Alternative Investing Club Speaker meetings happen every Friday at 12pm Pacific time',
+    image: speakercollage,
     icon: function ReportingIcon() {
       let id = useId()
       return (
@@ -44,12 +44,12 @@ const features = [
     },
   },
   {
-    name: 'Inventory',
+    name: 'Personal Freedom',
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      'Join a community of like-minded investors interested in building their wealth, freedom and legacy',
     description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
-    image: screenshotInventory,
+      'Join with like-minded individuals who support and challenge each other to improve their businesses, personal lives, goals, and habits with weekly accountability masterminds and group investments',
+    image: zoom,
     icon: function InventoryIcon() {
       return (
         <>
@@ -72,12 +72,12 @@ const features = [
     },
   },
   {
-    name: 'Contacts',
+    name: 'Portfolio Building',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Regular opportunities to invest in Passive Income Investments',
     description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
-    image: screenshotContacts,
+      'Building a life changing portfolio takes more than just education and community, it also takes action. We provide our members regular opportunties to explore passive income opportunities.',
+    image: zoom,
     icon: function ContactsIcon() {
       return (
         <>
@@ -214,13 +214,12 @@ export function SecondaryFeatures() {
       className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
+        <div className="mx-auto max-w-3xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Simplify everyday business tasks.
+            Open a Whole World of Possibilities
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
+            Professional working people have a lot on their plate. We work to enable you to build your portfolio through passive investments such as <b>Multifamily</b>, <b>Commercial Real Estate</b> and other investments that are on Main street, not Wall Street.
           </p>
         </div>
         <FeaturesMobile />

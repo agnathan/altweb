@@ -11,39 +11,37 @@ const testimonials = [
   [
     {
       content:
-        'TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'Thanks for investing your time into building this community. What you have accomplished is truly impressive',
       author: {
-        name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
+        name: 'Alexander Shapiro',
+        role: 'Club Member',
         image: avatarImage1,
       },
     },
     {
       content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+        'Thank you so much Daniel for running such a succesful initiative helping us all share the knowledge.The speakers you brought in were of high caliber and very knowledgeable.You will be greatly missed.All the best in future endeavors.Hope to stay connected.',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        name: 'Gloria Velazquez',
+        role: 'Club Member',
         image: avatarImage4,
       },
     },
-  ],
-  [
     {
       content:
-        'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+        'Thank you for being selfless in sharing your passion and knowledge with the rest of us.You opened the aperture for all us looking to establish passive income streams.Personally speaking, REIC meetings played a big role in getting me into the disipline of looking into possibilities every week',
       author: {
-        name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
+        name: 'Vasuki Chilukuri',
+        role: 'Club Member',
         image: avatarImage5,
       },
     },
     {
       content:
-        'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
+        'Thank you so much for turning me on to the world of passive real estate investing.All of us in the Intel Real Estate Club owe you a debt of gratitude for your tireless efforts to educate and enlighten us on a weekly basis. I ave to say that there are two things I look forward to every Friday: Pat\'s weekly video and your REIC meeting! Take care and stay in touch! Best regards',
       author: {
-        name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
+        name: 'Brad Suessmith',
+        role: 'Club Member',
         image: avatarImage2,
       },
     },
@@ -51,24 +49,83 @@ const testimonials = [
   [
     {
       content:
-        'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
+        'Thank you for creating and leading an organization that has an impact of 100s even 1000s when considering the future decision to come. Your efforts have positively impacted the direction of my career and my family. I see why you selected Good Samaritan as a title for your endeavors because you are living what this means, particularly on helping a stranger. I look forward to continued partnership, and growing our relationship.',
       author: {
-        name: 'Peter Renolds',
-        role: 'Founder of West Inc',
+        name: 'Eugenio Walters',
+        role: 'Club Member',
         image: avatarImage3,
       },
     },
     {
       content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+        'Thanks so much for creating this club and indoctrinating me into this great new world. I\'m ever grateful for your continual ear, advice, instruction, and friendship. I\'m glad we\'ve been able to do deals together, and look forward to more in the future. Thank you for bringing in such a diverse set of speakers and topics, and continuing to widen my aperature for investment acumen! Best of luck in the next adventure, and I\'m hopeful to be a part of it',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        name: 'Glenn Cochran',
+        role: 'Club Member',
+        image: avatarImage4,
+      },
+    },
+    {
+      content:
+        'Daniel, can\'t thank you enough for fostering REI quality learning within the company! Many times I find myself quoting what I\'ve learned through the club through you!',
+      author: {
+        name: 'Anonymous',
+        role: 'Club Member',
+        image: avatarImage4,
+      },
+    },
+  ],
+  [
+    {
+      content:
+        'Thank you for running the club! As a brand new real estate investor, I found the topics helpful in my learning journey.',
+      author: {
+        name: 'Ain Indermitte',
+        role: 'Club Member',
+        image: avatarImage1,
+      },
+    },
+    {
+      content:
+        'Thank you so much Daniel for inviting me to the Real Estate meetings.They were informative and fun!',
+      author: {
+        name: 'Mary Kirkpatrick',
+        role: 'Club Member',
+        image: avatarImage1,
+      },
+    },
+    {
+      content:
+        'I am so glad to have come across the REIC club, which helped me connect with you.You have a wealth of knowledge personally and unique connections that gave us the bigger picture to take action.Your passion for helping fellow Intel employees individually and through the experts in the field is commendable.You had a tremendous impact on my real estate learning journey.',
+      author: {
+        name: 'Gopal Gandikota',
+        role: 'Club Member',
+        image: avatarImage4,
+      },
+    },
+    {
+      content:
+        'Daniel, thank you so much for running and starting this club.I have learned a lot! I even got introduced to our real estate agent through one of the presentations that helped my wife and I find and buy our first home together! You helped create a very valuable and inspirational community.Wish you all the best',
+      author: {
+        name: 'Caleb Fountain',
+        role: 'Club Member',
+        image: avatarImage1,
+      },
+    },
+    {
+      content:
+        'Thank You Daniel for freely sharing your real estate expertise with all of us.It was a true blessing',
+      author: {
+        name: 'Mary Kirkpatrick',
+        role: 'Club Member',
         image: avatarImage4,
       },
     },
   ],
 ]
+
+
+
 
 function QuoteIcon(props) {
   return (
@@ -88,12 +145,10 @@ export function Testimonials() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Loved by businesses worldwide.
+            Loved by our Members
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
+            The Alternative Investing Club, previously the Intel Real Estate Investment Club, has the goal of touching lives and empowering people to invest well to live and to give abundently
           </p>
         </div>
         <ul
@@ -121,7 +176,7 @@ export function Testimonials() {
                             {testimonial.author.role}
                           </div>
                         </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
+                        {/* <div className="overflow-hidden rounded-full bg-slate-50">
                           <Image
                             className="h-14 w-14 object-cover"
                             src={testimonial.author.image}
@@ -129,7 +184,7 @@ export function Testimonials() {
                             width={56}
                             height={56}
                           />
-                        </div>
+                        </div> */}
                       </figcaption>
                     </figure>
                   </li>

@@ -9,31 +9,32 @@ import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
 import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import apartments from '@/images/realestate/garden.webp'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Education',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-    image: screenshotPayroll,
+      "Learn about real estate and other passive investments with our comprehensive educational resources.",
+    image: apartments,
   },
   {
-    title: 'Claim expenses',
+    title: 'Expert Led Masterminds',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
+      "Pool resources, share research, and work together to manage properties with other members.",
+    image: apartments,
   },
   {
-    title: 'VAT handling',
+    title: 'Accountability',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-    image: screenshotVatReturns,
+      'Stay on track and avoid costly mistakes with regular check-ins with a mentor or coach.',
+    image: apartments,
   },
   {
-    title: 'Reporting',
+    title: 'Community & Networking',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-    image: screenshotReporting,
+      "Gain access to the entire community and connect with other members dedicated to personal development, real estate investing, entrepreneurship, and building their life",
+    image: apartments,
   },
 ]
 
@@ -72,11 +73,11 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Take Control of Your Family's Financial Future.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            Multifamily, Short Term Rentals, Oil and Gas and Other Passive Income Strategies
+            Creating a culture of ownership for busy people through education, mentorship and a goal oriented community
           </p>
         </div>
         <Tab.Group
