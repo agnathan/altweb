@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import zoom from '@/images/club/alternative-investment-club-photo.png'
 import speakercollage from '@/images/club/reic-speaker-collage.jpg'
-import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
+import camino from '@/images/club/camino2.webp'
 
 const features = [
   {
@@ -77,7 +77,7 @@ const features = [
       'Regular opportunities to invest in Passive Income Investments',
     description:
       'Building a life changing portfolio takes more than just education and community, it also takes action. We provide our members regular opportunties to explore passive income opportunities.',
-    image: zoom,
+    image: camino,
     icon: function ContactsIcon() {
       return (
         <>

@@ -73,7 +73,7 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Take Control of Your Family's Financial Future.
+            Take Control of Your Family&apos;s Financial Future.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
             Multifamily, Short Term Rentals, Oil and Gas and Other Passive Income Strategies
