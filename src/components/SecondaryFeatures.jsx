@@ -4,9 +4,9 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import zoom from 'images/club/alternative-investment-club-photo.webp'
-import speakercollage from 'images/club/reic-speaker-collage.webp'
-import camino from 'images/club/camino2.webp'
+import zoom from '@/images/club/alternative-investment-club-photo.webp'
+import speakercollage from '@/images/club/reic-speaker-collage.webp'
+import camino from '@/images/club/camino2.webp'
 
 const features = [
   {
