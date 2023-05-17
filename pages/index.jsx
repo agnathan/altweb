@@ -9,6 +9,7 @@ import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
+import { ScheduleBlade } from '@/components/Events'
 
 export default function Home() {
   return (
@@ -24,12 +25,14 @@ export default function Home() {
       <main>
         <Hero />
         <PrimaryFeatures />
-        <SecondaryFeatures />
+        <ScheduleBlade />
         <CallToAction />
+        <SecondaryFeatures />
+
         <Testimonials />
-        <Pricing />
-        <Faqs />
-      </main>
+        {/* <Pricing />
+        <Faqs /> */}
+      </main >
       <Footer />
     </>
   )

@@ -31,7 +31,7 @@ export function Hero() {
         {/* Creating a culture of ownership for busy people through education, mentorship and a goal oriented community */}
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/register">See Upcoming Events</Button>
+        <Button href="#events">See Upcoming Events</Button>
         <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
