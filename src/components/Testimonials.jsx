@@ -145,7 +145,7 @@ export function Testimonials() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Loved by our Members
+            Praised by our Members
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
             The Alternative Investing Club, previously the Intel Real Estate Investment Club, has the goal of touching lives and empowering people to invest well to live and to give abundently

@@ -294,8 +294,8 @@ export function ScheduleBlade() {
             We have a great speaker every every Friday at Noon Pacific time
           </p>
         </div>
-        <div class="flex flex-row">
-          <div class="basis-1/3">
+        <div className="flex flex-row">
+          <div className="basis-1/3">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">
               Upcoming
             </h2>
@@ -380,7 +380,7 @@ export function ScheduleBlade() {
               ))}
             </ol>
           </div>
-          <div class="basis-2/3">
+          <div className="basis-2/3">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">This Week</h2>
             <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">Probate Investing</h3>
             <p className="mt-2 text-sm text-gray-500">

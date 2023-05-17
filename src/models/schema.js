@@ -13,7 +13,7 @@ export const schema = {
                 "meetingDate": {
                     "name": "meetingDate",
                     "isArray": false,
-                    "type": "AWSTime",
+                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -84,5 +84,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.3",
-    "version": "00000ee893ede70a666dead6a9a282de"
+    "version": "2959822902b8f0db952f1945a907a843"
 };

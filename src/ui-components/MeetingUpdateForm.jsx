@@ -145,7 +145,7 @@ export default function MeetingUpdateForm(props) {
         label="Meeting date"
         isRequired={false}
         isReadOnly={false}
-        type="time"
+        type="date"
         value={meetingDate}
         onChange={(e) => {
           let { value } = e.target;
