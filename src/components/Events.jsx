@@ -294,7 +294,7 @@ export function ScheduleBlade() {
           </p>
         </div>
         <div className="flex flex-row">
-          <div className="basis-1/3">
+          <div className="basis-1/3 pr-8">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">
               Upcoming
             </h2>
