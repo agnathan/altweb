@@ -20,7 +20,7 @@ import { Container } from '@/components/Container'
 import zoom from '@/images/club/alternative-investment-club-photo.webp'
 import speakercollage from '@/images/club/reic-speaker-collage.webp'
 import camino from '@/images/club/camino2.webp'
-import speakerPhoto from '@/images/speaker/sharon.jpg'
+import speakerPhoto from '@/images/club/alternative-investment-club-photo.webp'
 const features = [
   {
     name: 'Financial Education',
@@ -111,11 +111,11 @@ const features = [
 
 const people = [
   {
-    name: 'Sharon Vornholt',
-    title: 'Probate Investing',
+    name: 'Club Discussion',
+    title: 'Member Stories and Club Discussion',
     imageUrl:
       camino,
-    bio: 'Welcome to the Alternative Investing Club. Our speaker this week is Sharon Vornholt. Sharon Vornholt is the owner of Innovative Property Solutions in Louisville, KY.She began investing in 1998 and is best known for her expertise in probate investing and marketing and branding.Sharon is the creator of the “Louisville Gal’s Real Estate Blog” and is the host of the popular podcast, “Let’s Talk Real Estate Investing”. Sharon has helped hundreds of people refine their brands and create customized marketing plans that allow them to generate a steady stream of leads through the lucrative niche of probates. She will be speaking at our Alternative Investing Club Friday Zoom event on May 19th at 12pm Pacific time.Sharon will be sharing her insights on how to find and profit from probate properties. This is a great opportunity to learn from one of the leading experts in probate investing.Don\'t miss out! We hope to see you there!',
+    bio: 'This week we will be listening to club members who have had a great experience with someone in the real estate or passive investing industry. If you\'ve had a great experience with a real estate agent, property broker, lender, syndicator or contractor, email daniel@goodsamaritancaptial.com and let me know that you\'d like to be put on the agenda to share. If you would like to share about your recent investment, this week will be about discovering what other people in the club are doing and the best people that they are working with. This is a great opportunity to learn from each other. Don\'t miss out! We hope to see you there!',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -126,27 +126,16 @@ const people = [
 const meetings = [
   {
     id: 1,
-    date: 'May 12, 2023',
+    date: 'May 26, 2023',
     time: '12:00 PM',
-    datetime: '2023-05-05T12:00',
-    name: 'Nick King',
-    title: 'Securitized Wine & Spirits Investing',
-    imageUrl:
-      '/images/levi.jpg',
-    location: 'Zoom',
-  },
-  {
-    id: 2,
-    date: 'May 19, 2023',
-    time: '12:00 PM',
-    datetime: '2023-05-19T12:00',
-    name: 'Sharon E Vornholt',
-    title: 'Probate Investing Simplified',
+    datetime: '2023-05-26T12:00',
+    name: 'Club Discussion',
+    title: 'Member Stories and Club Discussion',
     imageUrl: '/images/chandni.webp',
     location: 'Zoom',
   },
   {
-    id: 3,
+    id: 2,
     date: 'June 2, 2023',
     time: '12:00 PM',
     datetime: '2023-06-02T12:00',
@@ -156,7 +145,17 @@ const meetings = [
       '/images/jimmy.jpg',
     location: 'Zoom',
   }, {
-    id: 2,
+    id: 3,
+    date: 'June 9, 2023',
+    time: '12:00 PM',
+    datetime: '2023-06-02T12:00',
+    name: 'Eric Rosenfeld',
+    title: 'Trends and Lessons Learned from 17 Years of Venture Investing',
+    imageUrl:
+      '/images/jimmy.jpg',
+    location: 'Zoom',
+  }, {
+    id: 4,
     date: 'June 16, 2023',
     time: '12:00 PM',
     datetime: '2023-06-16T12:00',
@@ -382,7 +381,7 @@ export function ScheduleBlade() {
           </div>
           <div className="basis-2/3">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">This Week</h2>
-            <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">Probate Investing</h3>
+            <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">Member Stories and Club Discussion</h3>
             <p className="mt-2 text-sm text-gray-500">
               <time dateTime={date}>{date}</time>
             </p>
