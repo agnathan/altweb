@@ -15,6 +15,7 @@ import { PublicLayout } from '@/components/layouts/PublicLayout'
 export default function Home() {
   return (
     <PublicLayout>
+      <Hero />
       <PrimaryFeatures />
       <ScheduleBlade />
       <CallToAction />

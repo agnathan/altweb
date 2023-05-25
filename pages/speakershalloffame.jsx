@@ -20,16 +20,25 @@ import { PublicLayout } from '@/components/layouts/PublicLayout'
 // AWS Imports
 import { DataStore, Predicates, SortDirection } from 'aws-amplify';
 import { Meeting } from '@/models'
+import { format } from 'prettier'
 
 export const getStaticProps = async () => {
-    const meetingsRES = await DataStore.query(Meeting, (c) => c.meetingDate.lt("2023-05-25"), {
+    let currentDate = new Date()
+    currentDate = currentDate.toISOString().split('T')[0]
+    // console.log(currentDate)
+    const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
+        c.meetingDate.lt(currentDate),
+        c.speaker.ne(null),
+        c.title.ne(null),
+        c.meetingDate.ne(null),
+        c.rumbleUrl.ne(null),
+        c.photo.ne(null),
+    ]), {
         sort: (s) => s.meetingDate(SortDirection.DESCENDING),
-        limit: 2
-    });
+        limit: 9
+    })
 
     const meetings = JSON.parse(JSON.stringify(meetingsRES))
-    console.log(meetings)
-    // const meetings = res.data.listMeetings.items
     return { props: { meetings } };
 };
 
@@ -115,7 +124,7 @@ const speakers = [
 ]
 
 export default function SpeakerHallofFamePage({ meetings }) {
-    console.log(meetings)
+    // console.log(meetings)
     return (
         <PublicLayout>
             <Container className="pb-16 text-left">
