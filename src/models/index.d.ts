@@ -16,6 +16,11 @@ type EagerMeeting = {
   readonly speaker?: string | null;
   readonly title?: string | null;
   readonly description?: string | null;
+  readonly photo?: string | null;
+  readonly videoUrl?: string | null;
+  readonly thumbnail?: string | null;
+  readonly youtubeUrl?: string | null;
+  readonly rumbleUrl?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -30,6 +35,11 @@ type LazyMeeting = {
   readonly speaker?: string | null;
   readonly title?: string | null;
   readonly description?: string | null;
+  readonly photo?: string | null;
+  readonly videoUrl?: string | null;
+  readonly thumbnail?: string | null;
+  readonly youtubeUrl?: string | null;
+  readonly rumbleUrl?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

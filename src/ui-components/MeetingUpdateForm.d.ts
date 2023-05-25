@@ -18,12 +18,22 @@ export declare type MeetingUpdateFormInputValues = {
     speaker?: string;
     title?: string;
     description?: string;
+    photo?: string;
+    videoUrl?: string;
+    thumbnail?: string;
+    youtubeUrl?: string;
+    rumbleUrl?: string;
 };
 export declare type MeetingUpdateFormValidationValues = {
     meetingDate?: ValidationFunction<string>;
     speaker?: ValidationFunction<string>;
     title?: ValidationFunction<string>;
     description?: ValidationFunction<string>;
+    photo?: ValidationFunction<string>;
+    videoUrl?: ValidationFunction<string>;
+    thumbnail?: ValidationFunction<string>;
+    youtubeUrl?: ValidationFunction<string>;
+    rumbleUrl?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MeetingUpdateFormOverridesProps = {
@@ -32,6 +42,11 @@ export declare type MeetingUpdateFormOverridesProps = {
     speaker?: PrimitiveOverrideProps<TextFieldProps>;
     title?: PrimitiveOverrideProps<TextFieldProps>;
     description?: PrimitiveOverrideProps<TextFieldProps>;
+    photo?: PrimitiveOverrideProps<TextFieldProps>;
+    videoUrl?: PrimitiveOverrideProps<TextFieldProps>;
+    thumbnail?: PrimitiveOverrideProps<TextFieldProps>;
+    youtubeUrl?: PrimitiveOverrideProps<TextFieldProps>;
+    rumbleUrl?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type MeetingUpdateFormProps = React.PropsWithChildren<{
     overrides?: MeetingUpdateFormOverridesProps | undefined | null;

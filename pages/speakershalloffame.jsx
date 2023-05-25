@@ -1,23 +1,50 @@
+// React Components
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
+
+// Hero Icons
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
+// NextJS Components
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import Image from 'next/image'
+
+// Images 
+import ashish from '../src/images/speaker/ashish.jpg'
+import jason from '../src/images/speaker/jasonhartman.jpg'
+
+// Application Components
+import { Container } from '@/components/Container'
+import { PublicLayout } from '@/components/layouts/PublicLayout'
+
+// AWS Imports
+import { DataStore, Predicates, SortDirection } from 'aws-amplify';
+import { Meeting } from '@/models'
+
+export const getStaticProps = async () => {
+    const meetingsRES = await DataStore.query(Meeting, (c) => c.meetingDate.lt("2023-05-25"), {
+        sort: (s) => s.meetingDate(SortDirection.DESCENDING),
+        limit: 2
+    });
+
+    const meetings = JSON.parse(JSON.stringify(meetingsRES))
+    console.log(meetings)
+    // const meetings = res.data.listMeetings.items
+    return { props: { meetings } };
+};
 
 const speakers = [
     {
         name: 'Ashish Gupta',
         title: 'Is it possible to replace your W2 income passively',
-        imageUrl:
-            '/images/speakers/ashish.jpg',
+        imageUrl: ashish,
         videoUrl: 'https://rumble.com/v2m6d2m-is-it-possible-to-replace-your-w2-income-passively.html',
         meeting_date: 'March 3rd, 2023',
     },
     {
         name: 'Jason Hartman',
         title: 'How Inflation make Debit An Asset',
-        imageUrl:
-            '/images/speakers/2021-02-20_Jason-Hartman_Macroeconomics---How-Inflation-make-Debit-An-Asset.jpg',
+        imageUrl: jason,
         videoUrl: 'https://rumble.com/v2kwpii-inflation-induced-debt-destruction-with-jason-hartman.html',
         meeting_date: 'February 20, 2021',
     },
@@ -87,34 +114,35 @@ const speakers = [
     },
 ]
 
-export default function SpeakerHallofFamePage() {
+export default function SpeakerHallofFamePage({ meetings }) {
+    console.log(meetings)
     return (
-        // <div className="bg-gray-900 py-24 sm:py-32">
-        //     <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        //         <div className="mx-auto max-w-2xl lg:mx-0">
-        //             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Speaker Hall of Fame</h2>
-        //             <p className="mt-6 text-lg leading-8 text-gray-300">
-        //                 The Alternative Investing Club invites speakers learn about real estate and alternative investing strategies every Friday.
-        //             </p>
-        //         </div>
-        //         <ul
-        //             title="list"
-        //             className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
-        //         >
-        //             {speakers.map((speaker) => (
-        //                 <li key={speaker.name}>
-        //                     <Link href={speaker.videoUrl}>
-        //                         <img className="aspect-[14/13] w-full rounded-2xl object-cover" src={speaker.imageUrl} alt="" />
-        //                         <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">{speaker.name}</h3>
-        //                         <p className="text-base leading-7 text-gray-300">{speaker.title}</p>
-        //                         <p className="text-sm leading-6 text-gray-500">{speaker.meeting_date}</p>
-        //                     </Link>
-        //                 </li>
-        //             ))}
-        //         </ul>
-        //     </div>
-        // </div>
-
-        <CallToAction />
+        <PublicLayout>
+            <Container className="pb-16 text-left">
+                <div className="mx-auto max-w-3xl lg:mx-0">
+                    <h2 className="font-display text-3xl tracking-tight text-grey-900 sm:text-4xl md:text-5xl">
+                        Speaker Hall of Fame
+                    </h2>
+                    <p className="mt-6 text-lg leading-8 text-gray-300">
+                        The Alternative Investing Club invites speakers learn about real estate and alternative investing strategies every Friday.
+                    </p>
+                </div>
+                <ul
+                    title="list"
+                    className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
+                >
+                    {meetings.map((meeting) => (
+                        <li key={meeting.speaker}>
+                            <Link href={meeting.rumbleUrl}>
+                                <Image className="aspect-[14/13] w-full rounded-2xl object-cover" width="400" height="400" src={meeting.photo} alt="" />
+                                <h3 className="mt-6 text-2xl font-semibold leading-8 tracking-tight text-gray-900">{meeting.speaker}</h3>
+                                <p className="text-base leading-7 text-gray-300">{meeting.title}</p>
+                                <p className="text-sm leading-6 text-gray-500">{meeting.meetingDate}</p>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </Container>
+        </PublicLayout>
     )
 }

@@ -38,6 +38,41 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "photo": {
+                    "name": "photo",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "videoUrl": {
+                    "name": "videoUrl",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "thumbnail": {
+                    "name": "thumbnail",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "youtubeUrl": {
+                    "name": "youtubeUrl",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "rumbleUrl": {
+                    "name": "rumbleUrl",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -84,5 +119,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.3",
-    "version": "2959822902b8f0db952f1945a907a843"
+    "version": "52e6592be3a37bd90895509c367f46d8"
 };

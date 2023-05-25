@@ -10,30 +10,18 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { ScheduleBlade } from '@/components/Events'
+import { PublicLayout } from '@/components/layouts/PublicLayout'
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Alternative Investing Club</title>
-        <meta
-          name="description"
-          content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
-        />
-      </Head>
-      <Header />
-      <main>
-        <Hero />
-        <PrimaryFeatures />
-        <ScheduleBlade />
-        <CallToAction />
-        <SecondaryFeatures />
-
-        <Testimonials />
-        {/* <Pricing />
+    <PublicLayout>
+      <PrimaryFeatures />
+      <ScheduleBlade />
+      <CallToAction />
+      <SecondaryFeatures />``
+      <Testimonials />
+      {/* <Pricing />
         <Faqs /> */}
-      </main >
-      <Footer />
-    </>
+    </PublicLayout>
   )
 }

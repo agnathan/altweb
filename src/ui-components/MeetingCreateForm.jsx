@@ -27,6 +27,11 @@ export default function MeetingCreateForm(props) {
     speaker: "",
     title: "",
     description: "",
+    photo: "",
+    videoUrl: "",
+    thumbnail: "",
+    youtubeUrl: "",
+    rumbleUrl: "",
   };
   const [meetingDate, setMeetingDate] = React.useState(
     initialValues.meetingDate
@@ -36,12 +41,22 @@ export default function MeetingCreateForm(props) {
   const [description, setDescription] = React.useState(
     initialValues.description
   );
+  const [photo, setPhoto] = React.useState(initialValues.photo);
+  const [videoUrl, setVideoUrl] = React.useState(initialValues.videoUrl);
+  const [thumbnail, setThumbnail] = React.useState(initialValues.thumbnail);
+  const [youtubeUrl, setYoutubeUrl] = React.useState(initialValues.youtubeUrl);
+  const [rumbleUrl, setRumbleUrl] = React.useState(initialValues.rumbleUrl);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setMeetingDate(initialValues.meetingDate);
     setSpeaker(initialValues.speaker);
     setTitle(initialValues.title);
     setDescription(initialValues.description);
+    setPhoto(initialValues.photo);
+    setVideoUrl(initialValues.videoUrl);
+    setThumbnail(initialValues.thumbnail);
+    setYoutubeUrl(initialValues.youtubeUrl);
+    setRumbleUrl(initialValues.rumbleUrl);
     setErrors({});
   };
   const validations = {
@@ -49,6 +64,11 @@ export default function MeetingCreateForm(props) {
     speaker: [],
     title: [],
     description: [],
+    photo: [{ type: "URL" }],
+    videoUrl: [{ type: "URL" }],
+    thumbnail: [{ type: "URL" }],
+    youtubeUrl: [{ type: "URL" }],
+    rumbleUrl: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -80,6 +100,11 @@ export default function MeetingCreateForm(props) {
           speaker,
           title,
           description,
+          photo,
+          videoUrl,
+          thumbnail,
+          youtubeUrl,
+          rumbleUrl,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -139,6 +164,11 @@ export default function MeetingCreateForm(props) {
               speaker,
               title,
               description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
             };
             const result = onChange(modelFields);
             value = result?.meetingDate ?? value;
@@ -166,6 +196,11 @@ export default function MeetingCreateForm(props) {
               speaker: value,
               title,
               description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
             };
             const result = onChange(modelFields);
             value = result?.speaker ?? value;
@@ -193,6 +228,11 @@ export default function MeetingCreateForm(props) {
               speaker,
               title: value,
               description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -220,6 +260,11 @@ export default function MeetingCreateForm(props) {
               speaker,
               title,
               description: value,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -233,6 +278,166 @@ export default function MeetingCreateForm(props) {
         errorMessage={errors.description?.errorMessage}
         hasError={errors.description?.hasError}
         {...getOverrideProps(overrides, "description")}
+      ></TextField>
+      <TextField
+        label="Photo"
+        isRequired={false}
+        isReadOnly={false}
+        value={photo}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo: value,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
+            };
+            const result = onChange(modelFields);
+            value = result?.photo ?? value;
+          }
+          if (errors.photo?.hasError) {
+            runValidationTasks("photo", value);
+          }
+          setPhoto(value);
+        }}
+        onBlur={() => runValidationTasks("photo", photo)}
+        errorMessage={errors.photo?.errorMessage}
+        hasError={errors.photo?.hasError}
+        {...getOverrideProps(overrides, "photo")}
+      ></TextField>
+      <TextField
+        label="Video url"
+        isRequired={false}
+        isReadOnly={false}
+        value={videoUrl}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo,
+              videoUrl: value,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
+            };
+            const result = onChange(modelFields);
+            value = result?.videoUrl ?? value;
+          }
+          if (errors.videoUrl?.hasError) {
+            runValidationTasks("videoUrl", value);
+          }
+          setVideoUrl(value);
+        }}
+        onBlur={() => runValidationTasks("videoUrl", videoUrl)}
+        errorMessage={errors.videoUrl?.errorMessage}
+        hasError={errors.videoUrl?.hasError}
+        {...getOverrideProps(overrides, "videoUrl")}
+      ></TextField>
+      <TextField
+        label="Thumbnail"
+        isRequired={false}
+        isReadOnly={false}
+        value={thumbnail}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo,
+              videoUrl,
+              thumbnail: value,
+              youtubeUrl,
+              rumbleUrl,
+            };
+            const result = onChange(modelFields);
+            value = result?.thumbnail ?? value;
+          }
+          if (errors.thumbnail?.hasError) {
+            runValidationTasks("thumbnail", value);
+          }
+          setThumbnail(value);
+        }}
+        onBlur={() => runValidationTasks("thumbnail", thumbnail)}
+        errorMessage={errors.thumbnail?.errorMessage}
+        hasError={errors.thumbnail?.hasError}
+        {...getOverrideProps(overrides, "thumbnail")}
+      ></TextField>
+      <TextField
+        label="Youtube url"
+        isRequired={false}
+        isReadOnly={false}
+        value={youtubeUrl}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl: value,
+              rumbleUrl,
+            };
+            const result = onChange(modelFields);
+            value = result?.youtubeUrl ?? value;
+          }
+          if (errors.youtubeUrl?.hasError) {
+            runValidationTasks("youtubeUrl", value);
+          }
+          setYoutubeUrl(value);
+        }}
+        onBlur={() => runValidationTasks("youtubeUrl", youtubeUrl)}
+        errorMessage={errors.youtubeUrl?.errorMessage}
+        hasError={errors.youtubeUrl?.hasError}
+        {...getOverrideProps(overrides, "youtubeUrl")}
+      ></TextField>
+      <TextField
+        label="Rumble url"
+        isRequired={false}
+        isReadOnly={false}
+        value={rumbleUrl}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.rumbleUrl ?? value;
+          }
+          if (errors.rumbleUrl?.hasError) {
+            runValidationTasks("rumbleUrl", value);
+          }
+          setRumbleUrl(value);
+        }}
+        onBlur={() => runValidationTasks("rumbleUrl", rumbleUrl)}
+        errorMessage={errors.rumbleUrl?.errorMessage}
+        hasError={errors.rumbleUrl?.hasError}
+        {...getOverrideProps(overrides, "rumbleUrl")}
       ></TextField>
       <Flex
         justifyContent="space-between"
