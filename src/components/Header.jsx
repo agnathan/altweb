@@ -99,9 +99,9 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#benefits">Benefits</NavLink>
-              <NavLink href="#events">Events</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
+              <NavLink href="/#benefits">Benefits</NavLink>
+              <NavLink href="/#events">Events</NavLink>
+              <NavLink href="/s#testimonials">Testimonials</NavLink>
               <NavLink href="/speakerhalloffame">Speaker Hall of Fame</NavLink>
             </div>
           </div>
