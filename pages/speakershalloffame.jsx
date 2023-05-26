@@ -124,7 +124,6 @@ const speakers = [
 ]
 
 export default function SpeakerHallofFamePage({ meetings }) {
-    // console.log(meetings)
     return (
         <PublicLayout>
             <Container className="pb-16 text-left">
