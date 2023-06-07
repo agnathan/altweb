@@ -9,5 +9,6 @@ type Meeting @model @auth(rules: [{allow: public}]) {
   thumbnail: AWSURL
   youtubeUrl: AWSURL
   rumbleUrl: String
+  meetingDateTime: AWSDateTime
 }
  

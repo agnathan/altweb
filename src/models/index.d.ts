@@ -21,6 +21,7 @@ type EagerMeeting = {
   readonly thumbnail?: string | null;
   readonly youtubeUrl?: string | null;
   readonly rumbleUrl?: string | null;
+  readonly meetingDateTime?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -40,6 +41,7 @@ type LazyMeeting = {
   readonly thumbnail?: string | null;
   readonly youtubeUrl?: string | null;
   readonly rumbleUrl?: string | null;
+  readonly meetingDateTime?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

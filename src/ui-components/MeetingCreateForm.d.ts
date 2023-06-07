@@ -22,6 +22,7 @@ export declare type MeetingCreateFormInputValues = {
     thumbnail?: string;
     youtubeUrl?: string;
     rumbleUrl?: string;
+    meetingDateTime?: string;
 };
 export declare type MeetingCreateFormValidationValues = {
     meetingDate?: ValidationFunction<string>;
@@ -33,6 +34,7 @@ export declare type MeetingCreateFormValidationValues = {
     thumbnail?: ValidationFunction<string>;
     youtubeUrl?: ValidationFunction<string>;
     rumbleUrl?: ValidationFunction<string>;
+    meetingDateTime?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MeetingCreateFormOverridesProps = {
@@ -46,6 +48,7 @@ export declare type MeetingCreateFormOverridesProps = {
     thumbnail?: PrimitiveOverrideProps<TextFieldProps>;
     youtubeUrl?: PrimitiveOverrideProps<TextFieldProps>;
     rumbleUrl?: PrimitiveOverrideProps<TextFieldProps>;
+    meetingDateTime?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type MeetingCreateFormProps = React.PropsWithChildren<{
     overrides?: MeetingCreateFormOverridesProps | undefined | null;

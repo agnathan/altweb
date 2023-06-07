@@ -1,10 +1,3 @@
-// React Components
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-
-// Hero Icons
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
 // NextJS Components
 import Link from 'next/link'
 import Image from 'next/image'
@@ -20,7 +13,6 @@ import { PublicLayout } from '@/components/layouts/PublicLayout'
 // AWS Imports
 import { DataStore, Predicates, SortDirection } from 'aws-amplify';
 import { Meeting } from '@/models'
-import { format } from 'prettier'
 
 export const getStaticProps = async () => {
     let currentDate = new Date()

@@ -6,15 +6,9 @@ import clsx from 'clsx'
 
 import {
   CalendarIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  EllipsisHorizontalIcon,
   MapPinIcon,
 } from '@heroicons/react/20/solid'
 import { Menu, Transition } from '@headlessui/react'
-
-const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
-const date = 'April 28st, 2023'
 
 import { Container } from '@/components/Container'
 import zoom from '@/images/club/alternative-investment-club-photo.webp'
@@ -122,50 +116,7 @@ const people = [
   // More people...
 ]
 
-
-const meetings = [
-  {
-    id: 1,
-    date: 'May 26, 2023',
-    time: '12:00 PM',
-    datetime: '2023-05-26T12:00',
-    name: 'Club Discussion',
-    title: 'Member Stories and Club Discussion',
-    imageUrl: '/images/chandni.webp',
-    location: 'Zoom',
-  },
-  {
-    id: 2,
-    date: 'June 2, 2023',
-    time: '12:00 PM',
-    datetime: '2023-06-02T12:00',
-    name: 'Jake Jackson',
-    title: 'Oil & Gas Drilling Partnerships',
-    imageUrl:
-      '/images/jimmy.jpg',
-    location: 'Zoom',
-  }, {
-    id: 3,
-    date: 'June 9, 2023',
-    time: '12:00 PM',
-    datetime: '2023-06-02T12:00',
-    name: 'Eric Rosenfeld',
-    title: 'Trends and Lessons Learned from 17 Years of Venture Investing',
-    imageUrl:
-      '/images/jimmy.jpg',
-    location: 'Zoom',
-  }, {
-    id: 4,
-    date: 'June 16, 2023',
-    time: '12:00 PM',
-    datetime: '2023-06-16T12:00',
-    name: 'Kaaren E Hall',
-    title: 'Supercharging Your Retirement With Alternative Assets',
-    imageUrl: '/images/sharon.jpg',
-    location: 'Zoom',
-  },
-  // More meetings...
-]
+const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
 
 function Feature({ feature, isActive, className, ...props }) {
   return (
@@ -277,7 +228,39 @@ function FeaturesDesktop() {
   )
 }
 
-export function ScheduleBlade() {
+function extractDateFromISODateTime(isoDateTime) {
+  // Create a Date object
+  const date = new Date(isoDateTime);
+
+  // Use toISOString method to convert it back to ISO 8601 string
+  // then slice the string to include only the date part (the first 10 characters)
+  const dateOnly = date.toISOString().slice(0, 10);
+
+  return dateOnly;
+}
+
+function extractTimeFromISODateTime(isoDateTime) {
+  // Create a Date object
+  const date = new Date(isoDateTime);
+
+  // Get the hours, minutes, and seconds
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+  // const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+
+  // Combine them into a single string
+  const time = `${hours}:${minutes}`;
+
+  return time;
+}
+
+
+
+export function UpcomingMeetingsBlade({ meetings }) {
+  const thisweek = meetings[0] || {}
+  console.log("--------------------------------+")
+  console.log(thisweek)
+  console.log("--------------------------------=")
   return (
     <section
       id="events"
@@ -294,7 +277,7 @@ export function ScheduleBlade() {
           </p>
         </div>
         <div className="flex flex-row">
-          <div className="basis-1/3">
+          <div className="basis-1/3 mr-16">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">
               Upcoming
             </h2>
@@ -303,7 +286,7 @@ export function ScheduleBlade() {
                 <li key={meeting.id} className="relative flex space-x-6 py-6 xl:static">
                   {/* <img src={meeting.imageUrl} alt="" className="h-14 w-14 flex-none rounded-full" /> */}
                   <div className="flex-auto">
-                    <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">{meeting.name} - {meeting.title}</h3>
+                    <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">{meeting.speaker} - {meeting.title}</h3>
                     <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0"></h3>
                     <dl className="mt-2 flex flex-col text-gray-500 xl:flex-row">
                       <div className="flex items-start space-x-3">
@@ -312,8 +295,8 @@ export function ScheduleBlade() {
                           <CalendarIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                         </dt>
                         <dd>
-                          <time dateTime={meeting.datetime}>
-                            {meeting.date} at {meeting.time}
+                          <time dateTime={meeting.meetingDateTime}>
+                            {extractDateFromISODateTime(meeting.meetingDateTime)} at {extractTimeFromISODateTime(meeting.meetingDateTime)}
                           </time>
                         </dd>
                       </div>
@@ -381,10 +364,10 @@ export function ScheduleBlade() {
           </div>
           <div className="basis-2/3">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">This Week</h2>
-            <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">Member Stories and Club Discussion</h3>
-            <p className="mt-2 text-sm text-gray-500">
-              <time dateTime={date}>{date}</time>
-            </p>
+            {/* <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">{thisweek.title}</h3> */}
+            {/* <p className="mt-2 text-sm text-gray-500">
+              <time dateTime={meeting.date}>{meeting.date}</time>
+            </p> */}
             <p className="mt-6 text-lg leading-8 text-gray-600">
             </p>
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-1">
@@ -393,13 +376,12 @@ export function ScheduleBlade() {
                 role="list"
                 className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-1 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-1"
               >
-                {people.map((person) => (
-                  <li key={person.name}>
-                    <Image className="aspect-[3/2] w-full rounded-2xl object-cover" src={speakerPhoto} alt="" />
-                    <h3 className="mt-6 text-2xl font-semibold leading-8 text-gray-900 md:text-3xl">{person.name}</h3>
-                    <p className="text-base leading-7 text-gray-600">{person.role}</p>
-                    <p className="mt-4 text-base leading-7 text-gray-600">{person.bio}</p>
-                    {/* <ul role="list" className="mt-6 flex gap-x-6">
+
+                <li key={thisweek.speaker}>
+                  <Image className="w-full rounded-2xl object-cover" width={960} height={540} src={thisweek.thumbnail} alt="" />
+                  <h3 className="mt-6 text-2xl font-semibold leading-8 text-gray-900 md:text-3xl">{thisweek.speaker}</h3>
+                  <p className="text-base leading-7 text-gray-600">{thisweek.description}</p>
+                  {/* <ul role="list" className="mt-6 flex gap-x-6">
                       <li>
                         <a href={person.twitterUrl} className="text-gray-400 hover:text-gray-500">
                           <span className="sr-only">Twitter</span>
@@ -421,16 +403,16 @@ export function ScheduleBlade() {
                         </a>
                       </li>
                     </ul> */}
-                    <Link href={zoomRegistrationLink}>
-                      <button
-                        type="button"
-                        className="flex w-full mt-8 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                      >
-                        Register to Attend
-                      </button>
-                    </Link>
-                  </li>
-                ))}
+                  <Link href={zoomRegistrationLink}>
+                    <button
+                      type="button"
+                      className="flex w-full mt-8 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                    >
+                      Register to Attend
+                    </button>
+                  </Link>
+                </li>
+
               </ul>
             </div>
           </div>

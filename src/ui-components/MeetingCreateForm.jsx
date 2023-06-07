@@ -32,6 +32,7 @@ export default function MeetingCreateForm(props) {
     thumbnail: "",
     youtubeUrl: "",
     rumbleUrl: "",
+    meetingDateTime: "",
   };
   const [meetingDate, setMeetingDate] = React.useState(
     initialValues.meetingDate
@@ -46,6 +47,9 @@ export default function MeetingCreateForm(props) {
   const [thumbnail, setThumbnail] = React.useState(initialValues.thumbnail);
   const [youtubeUrl, setYoutubeUrl] = React.useState(initialValues.youtubeUrl);
   const [rumbleUrl, setRumbleUrl] = React.useState(initialValues.rumbleUrl);
+  const [meetingDateTime, setMeetingDateTime] = React.useState(
+    initialValues.meetingDateTime
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setMeetingDate(initialValues.meetingDate);
@@ -57,6 +61,7 @@ export default function MeetingCreateForm(props) {
     setThumbnail(initialValues.thumbnail);
     setYoutubeUrl(initialValues.youtubeUrl);
     setRumbleUrl(initialValues.rumbleUrl);
+    setMeetingDateTime(initialValues.meetingDateTime);
     setErrors({});
   };
   const validations = {
@@ -69,6 +74,7 @@ export default function MeetingCreateForm(props) {
     thumbnail: [{ type: "URL" }],
     youtubeUrl: [{ type: "URL" }],
     rumbleUrl: [],
+    meetingDateTime: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -86,6 +92,23 @@ export default function MeetingCreateForm(props) {
     }
     setErrors((errors) => ({ ...errors, [fieldName]: validationResponse }));
     return validationResponse;
+  };
+  const convertToLocal = (date) => {
+    const df = new Intl.DateTimeFormat("default", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      calendar: "iso8601",
+      numberingSystem: "latn",
+      hourCycle: "h23",
+    });
+    const parts = df.formatToParts(date).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+    return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
   };
   return (
     <Grid
@@ -105,6 +128,7 @@ export default function MeetingCreateForm(props) {
           thumbnail,
           youtubeUrl,
           rumbleUrl,
+          meetingDateTime,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -169,6 +193,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.meetingDate ?? value;
@@ -201,6 +226,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.speaker ?? value;
@@ -233,6 +259,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -265,6 +292,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -297,6 +325,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.photo ?? value;
@@ -329,6 +358,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.videoUrl ?? value;
@@ -361,6 +391,7 @@ export default function MeetingCreateForm(props) {
               thumbnail: value,
               youtubeUrl,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.thumbnail ?? value;
@@ -393,6 +424,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl: value,
               rumbleUrl,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.youtubeUrl ?? value;
@@ -425,6 +457,7 @@ export default function MeetingCreateForm(props) {
               thumbnail,
               youtubeUrl,
               rumbleUrl: value,
+              meetingDateTime,
             };
             const result = onChange(modelFields);
             value = result?.rumbleUrl ?? value;
@@ -438,6 +471,41 @@ export default function MeetingCreateForm(props) {
         errorMessage={errors.rumbleUrl?.errorMessage}
         hasError={errors.rumbleUrl?.hasError}
         {...getOverrideProps(overrides, "rumbleUrl")}
+      ></TextField>
+      <TextField
+        label="Meeting date time"
+        isRequired={false}
+        isReadOnly={false}
+        type="datetime-local"
+        value={meetingDateTime && convertToLocal(new Date(meetingDateTime))}
+        onChange={(e) => {
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
+          if (onChange) {
+            const modelFields = {
+              meetingDate,
+              speaker,
+              title,
+              description,
+              photo,
+              videoUrl,
+              thumbnail,
+              youtubeUrl,
+              rumbleUrl,
+              meetingDateTime: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.meetingDateTime ?? value;
+          }
+          if (errors.meetingDateTime?.hasError) {
+            runValidationTasks("meetingDateTime", value);
+          }
+          setMeetingDateTime(value);
+        }}
+        onBlur={() => runValidationTasks("meetingDateTime", meetingDateTime)}
+        errorMessage={errors.meetingDateTime?.errorMessage}
+        hasError={errors.meetingDateTime?.hasError}
+        {...getOverrideProps(overrides, "meetingDateTime")}
       ></TextField>
       <Flex
         justifyContent="space-between"
