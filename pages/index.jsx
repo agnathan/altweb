@@ -73,7 +73,7 @@ export const getServerSideProps = async () => {
     // c.rumbleUrl.ne(null),
     // c.photo.ne(null),
   ]), {
-    sort: (s) => s.meetingDate(SortDirection.DESCENDING),
+    sort: (s) => s.meetingDate(SortDirection.ASCENDING),
     limit: 5
   })
 
