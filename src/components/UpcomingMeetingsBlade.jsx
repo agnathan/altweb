@@ -273,7 +273,7 @@ export function UpcomingMeetingsBlade({ meetings }) {
             Schedule of Speakers
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            We have a great speaker every every Friday at Noon Pacific time
+            We have a great speaker every Friday at Noon Pacific time
           </p>
         </div>
         <div className="flex flex-row">
