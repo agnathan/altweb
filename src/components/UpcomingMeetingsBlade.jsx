@@ -376,8 +376,7 @@ export function UpcomingMeetingsBlade({ meetings }) {
                 role="list"
                 className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-1 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-1"
               >
-
-                <li key={thisweek.speaker}>
+                {thisweek.speaker ? (<li key={thisweek.speaker}>
                   <Image className="w-full rounded-2xl object-cover" width={960} height={540} src={thisweek.thumbnail} alt="" />
                   <h3 className="mt-6 text-2xl font-semibold leading-8 text-gray-900 md:text-3xl">{thisweek.speaker}</h3>
                   <p className="text-base leading-7 text-gray-600">{thisweek.description}</p>
@@ -412,6 +411,10 @@ export function UpcomingMeetingsBlade({ meetings }) {
                     </button>
                   </Link>
                 </li>
+                ) : (
+                  <h2 className="text-base font-semibold leading-7 text-indigo-600">The next Speaker Will be Announced Soon</h2>
+                )}
+
 
               </ul>
             </div>

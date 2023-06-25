@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
     currentDate = currentDate.toISOString().split('T')[0]
     // console.log(currentDate)
     const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
-        c.meetingDate.le(currentDate),
+        c.meetingDate.lt(currentDate),
         c.speaker.ne(null),
         c.title.ne(null),
         c.meetingDate.ne(null),
