@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
     currentDate = currentDate.toISOString().split('T')[0]
     // console.log(currentDate)
     const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
-        c.meetingDate.lt(currentDate),
+        c.meetingDate.le(currentDate),
         c.speaker.ne(null),
         c.title.ne(null),
         c.meetingDate.ne(null),
@@ -35,7 +35,7 @@ export const getStaticProps = async () => {
         c.photo.ne(null),
     ]), {
         sort: (s) => s.meetingDate(SortDirection.DESCENDING),
-        limit: 9
+
     })
 
     const meetings = JSON.parse(JSON.stringify(meetingsRES))
