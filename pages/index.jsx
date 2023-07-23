@@ -21,12 +21,11 @@ export const getServerSideProps = async () => {
   let currentDateOrig = new Date()
   let currentDate = currentDateOrig.toISOString().split('T')[0]
   const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
-    c.meetingDateTime.gt(currentDate),
+    c.meetingDate.gt(currentDate),
     c.speaker.ne(null),
     c.title.ne(null),
     c.meetingDate.ne(null),
-    c.rumbleUrl.ne(null),
-    c.photo.ne(null),
+    c.thumbnail.ne(null)
   ]), {
     sort: (s) => s.meetingDate(SortDirection.ASCENDING),
     limit: 5
@@ -46,8 +45,6 @@ export default function Home({ meetings }) {
       <CallToAction />
       <SecondaryFeatures />
       <Testimonials />
-      {/* <Pricing />
-        <Faqs /> */}
     </PublicLayout>
   )
 }

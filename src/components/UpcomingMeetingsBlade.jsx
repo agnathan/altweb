@@ -103,18 +103,6 @@ const features = [
   },
 ]
 
-const people = [
-  {
-    name: 'Club Discussion',
-    title: 'Member Stories and Club Discussion',
-    imageUrl:
-      camino,
-    bio: 'This week we will be listening to club members who have had a great experience with someone in the real estate or passive investing industry. If you\'ve had a great experience with a real estate agent, property broker, lender, syndicator or contractor, email daniel@goodsamaritancaptial.com and let me know that you\'d like to be put on the agenda to share. If you would like to share about your recent investment, this week will be about discovering what other people in the club are doing and the best people that they are working with. This is a great opportunity to learn from each other. Don\'t miss out! We hope to see you there!',
-    twitterUrl: '#',
-    linkedinUrl: '#',
-  },
-  // More people...
-]
 
 const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
 
