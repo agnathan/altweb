@@ -27,7 +27,6 @@ export const getStaticProps = async () => {
         c.photo.ne(null),
     ]), {
         sort: (s) => s.meetingDate(SortDirection.DESCENDING),
-        limit: 9
     })
 
     const meetings = JSON.parse(JSON.stringify(meetingsRES))
