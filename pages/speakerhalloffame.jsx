@@ -1,4 +1,4 @@
-// NextJS Components
+// NextJS Components change
 import Link from 'next/link'
 import Image from 'next/image'
 
