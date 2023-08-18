@@ -16,35 +16,49 @@ import { UpcomingMeetingsBlade } from '@/components/UpcomingMeetingsBlade'
 import { PublicLayout } from '@/components/layouts/PublicLayout'
 
 const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
-const date = 'April 28st, 2023'
-
 
 export const getServerSideProps = async () => {
-  let currentDateOrig = new Date()
+  const currentDateOrig = new Date()
+  const sevenDaysInMilliseconds = 7 * 24 * 60 * 60 * 1000;
+  const nextWeekDate = new Date(currentDateOrig.getTime() + sevenDaysInMilliseconds);
   let currentDate = currentDateOrig.toISOString().split('T')[0]
-  console.log(currentDate)
+
+  const nextMeetingRES = await DataStore.query(Meeting, (c) => c.and(c => [
+    c.meetingDateTime.gt(currentDate),
+    c.speaker.ne(null),
+    c.title.ne(null),
+    c.meetingDate.ne(null),
+    c.meetingDateTime.ne(null),
+    c.thumbnail.ne(null)
+  ]), {
+    sort: (s) => s.meetingDate(SortDirection.ASCENDING),
+    limit: 2
+  })
+  const nextMeeting = JSON.parse(JSON.stringify(nextMeetingRES))
+  console.log(nextMeeting)
+
   const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
     c.meetingDate.gt(currentDate),
     c.speaker.ne(null),
     c.title.ne(null),
     c.meetingDate.ne(null),
     c.meetingDateTime.ne(null)
-    // c.thumbnail.ne(null)
   ]), {
     sort: (s) => s.meetingDate(SortDirection.ASCENDING),
     limit: 5
   })
 
   const meetings = JSON.parse(JSON.stringify(meetingsRES))
-  return { props: { meetings } };
+  console.log(meetings)
+  return { props: { nextMeeting, meetings } };
 };
 
-export default function Home({ meetings }) {
+export default function Home({ nextMeeting, meetings }) {
   return (
     <PublicLayout>
       <Hero />
       <PrimaryFeatures />
-      <UpcomingMeetingsBlade meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} />
+      <UpcomingMeetingsBlade nextMeeting={nextMeeting} meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} />
       <CallToAction />
       <SecondaryFeatures />
       <Testimonials />

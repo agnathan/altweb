@@ -244,11 +244,13 @@ function extractTimeFromISODateTime(isoDateTime) {
 
 
 
-export function UpcomingMeetingsBlade({ meetings }) {
-  const thisweek = meetings[0] || {}
-  console.log("--------------------------------+")
-  console.log(thisweek)
-  console.log("--------------------------------=")
+export function UpcomingMeetingsBlade({ nextMeeting, meetings }) {
+  nextMeeting = nextMeeting[0]
+  // console.log("nextMeeting --------------------------------+")
+  // console.log(nextMeeting)
+  // console.log("meetings --------------------------------=")
+  // console.log(meetings)
+  // console.log("--------------------------------9")
   return (
     <section
       id="events"
@@ -288,13 +290,13 @@ export function UpcomingMeetingsBlade({ meetings }) {
                           </time>
                         </dd>
                       </div>
-                      <div className="mt-2 flex items-start space-x-3 xl:ml-3.5 xl:mt-0 xl:border-l xl:border-gray-400 xl:border-opacity-50 xl:pl-3.5">
+                      {/* <div className="mt-2 flex items-start space-x-3 xl:ml-3.5 xl:mt-0 xl:border-l xl:border-gray-400 xl:border-opacity-50 xl:pl-3.5">
                         <dt className="mt-0.5">
                           <span className="sr-only">Location</span>
                           <MapPinIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                         </dt>
                         <dd>{meeting.location}</dd>
-                      </div>
+                      </div> */}
                     </dl>
                   </div>
                   {/* <Menu as="div" className="absolute right-0 top-6 xl:relative xl:right-auto xl:top-auto xl:self-center">
@@ -352,7 +354,7 @@ export function UpcomingMeetingsBlade({ meetings }) {
           </div>
           <div className="basis-2/3">
             <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">This Week</h2>
-            {/* <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">{thisweek.title}</h3> */}
+            {/* <h3 className="mt-2 text-lg tracking-tight text-gray-900 sm:text-xl">{nextMeeting.title}</h3> */}
             {/* <p className="mt-2 text-sm text-gray-500">
               <time dateTime={meeting.date}>{meeting.date}</time>
             </p> */}
@@ -364,10 +366,10 @@ export function UpcomingMeetingsBlade({ meetings }) {
                 role="list"
                 className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-1 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-1"
               >
-                {thisweek.speaker ? (<li key={thisweek.speaker}>
-                  <Image className="w-full rounded-2xl object-cover" width={960} height={540} src={thisweek.thumbnail} alt="" />
-                  <h3 className="mt-6 text-2xl font-semibold leading-8 text-gray-900 md:text-3xl">{thisweek.speaker}</h3>
-                  <p className="text-base leading-7 text-gray-600">{thisweek.description}</p>
+                {nextMeeting.speaker ? (<li key={nextMeeting.speaker}>
+                  <Image className="w-full rounded-2xl object-cover" width={960} height={540} src={nextMeeting.thumbnail} alt="" />
+                  <h3 className="mt-6 text-2xl font-semibold leading-8 text-gray-900 md:text-3xl">{nextMeeting.speaker}</h3>
+                  <p className="text-base leading-7 text-gray-600">{nextMeeting.description}</p>
                   {/* <ul role="list" className="mt-6 flex gap-x-6">
                       <li>
                         <a href={person.twitterUrl} className="text-gray-400 hover:text-gray-500">
