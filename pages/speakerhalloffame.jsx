@@ -48,7 +48,8 @@ export default function SpeakerHallofFamePage({ meetings }) {
                 </div>
                 <ul
                     title="list"
-                    className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
+                    className="mx-auto mt-20 grid gap-x-8 gap-y-14 mx-0 max-w-none grid-cols-4"
+                // className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
                 >
                     {meetings.map((meeting) => (
                         <li key={meeting.speaker}>
