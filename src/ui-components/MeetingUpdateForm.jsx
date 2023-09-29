@@ -82,14 +82,14 @@ export default function MeetingUpdateForm(props) {
   const validations = {
     meetingDate: [],
     speaker: [],
-    title: [],
-    description: [],
-    photo: [{ type: "URL" }],
+    title: [{ type: "Required" }],
+    description: [{ type: "Required" }],
+    photo: [{ type: "Required" }, { type: "URL" }],
     videoUrl: [{ type: "URL" }],
-    thumbnail: [{ type: "URL" }],
+    thumbnail: [{ type: "Required" }, { type: "URL" }],
     youtubeUrl: [{ type: "URL" }],
     rumbleUrl: [],
-    meetingDateTime: [],
+    meetingDateTime: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -169,8 +169,8 @@ export default function MeetingUpdateForm(props) {
         }
         try {
           Object.entries(modelFields).forEach(([key, value]) => {
-            if (typeof value === "string" && value.trim() === "") {
-              modelFields[key] = undefined;
+            if (typeof value === "string" && value === "") {
+              modelFields[key] = null;
             }
           });
           await DataStore.save(
@@ -258,8 +258,13 @@ export default function MeetingUpdateForm(props) {
         {...getOverrideProps(overrides, "speaker")}
       ></TextField>
       <TextField
-        label="Title"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Title</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={title}
         onChange={(e) => {
@@ -291,8 +296,13 @@ export default function MeetingUpdateForm(props) {
         {...getOverrideProps(overrides, "title")}
       ></TextField>
       <TextField
-        label="Description"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Description</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={description}
         onChange={(e) => {
@@ -324,8 +334,13 @@ export default function MeetingUpdateForm(props) {
         {...getOverrideProps(overrides, "description")}
       ></TextField>
       <TextField
-        label="Photo"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Photo</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={photo}
         onChange={(e) => {
@@ -390,8 +405,13 @@ export default function MeetingUpdateForm(props) {
         {...getOverrideProps(overrides, "videoUrl")}
       ></TextField>
       <TextField
-        label="Thumbnail"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Thumbnail</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={thumbnail}
         onChange={(e) => {
@@ -489,8 +509,13 @@ export default function MeetingUpdateForm(props) {
         {...getOverrideProps(overrides, "rumbleUrl")}
       ></TextField>
       <TextField
-        label="Meeting date time"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Meeting date time</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         type="datetime-local"
         value={meetingDateTime && convertToLocal(new Date(meetingDateTime))}

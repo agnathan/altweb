@@ -9,11 +9,18 @@ export const getMeeting = /* GraphQL */ `
       speaker
       title
       description
+      photo
+      videoUrl
+      thumbnail
+      youtubeUrl
+      rumbleUrl
+      meetingDateTime
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -30,14 +37,22 @@ export const listMeetings = /* GraphQL */ `
         speaker
         title
         description
+        photo
+        videoUrl
+        thumbnail
+        youtubeUrl
+        rumbleUrl
+        meetingDateTime
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;
@@ -60,14 +75,22 @@ export const syncMeetings = /* GraphQL */ `
         speaker
         title
         description
+        photo
+        videoUrl
+        thumbnail
+        youtubeUrl
+        rumbleUrl
+        meetingDateTime
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;

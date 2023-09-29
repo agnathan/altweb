@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "api": {
+      "altweb": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

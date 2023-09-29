@@ -10,6 +10,11 @@
       "StackName": "amplify-altweb-dev-83522",
       "StackId": "arn:aws:cloudformation:us-west-2:721119889921:stack/amplify-altweb-dev-83522/1bbe18e0-f336-11ed-8b6d-0a462ff80549",
       "AmplifyAppId": "d3932xtamhd02s"
+    },
+    "categories": {
+      "function": {
+        "myfunction": {}
+      }
     }
   }
 }

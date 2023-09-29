@@ -9,11 +9,18 @@ export const onCreateMeeting = /* GraphQL */ `
       speaker
       title
       description
+      photo
+      videoUrl
+      thumbnail
+      youtubeUrl
+      rumbleUrl
+      meetingDateTime
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -25,11 +32,18 @@ export const onUpdateMeeting = /* GraphQL */ `
       speaker
       title
       description
+      photo
+      videoUrl
+      thumbnail
+      youtubeUrl
+      rumbleUrl
+      meetingDateTime
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -41,11 +55,18 @@ export const onDeleteMeeting = /* GraphQL */ `
       speaker
       title
       description
+      photo
+      videoUrl
+      thumbnail
+      youtubeUrl
+      rumbleUrl
+      meetingDateTime
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
