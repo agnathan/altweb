@@ -11,7 +11,8 @@
           ],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
+              "apiKeyExpirationDate": "2024-10-08T14:06:08.580Z",
+              "apiKeyExpirationDays": 365,
               "description": "api key description"
             },
             "authenticationType": "API_KEY"
@@ -38,6 +39,24 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_myfunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "myfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_myfunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "myfunction"
+        }
+      ]
     }
   }
 }

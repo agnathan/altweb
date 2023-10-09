@@ -58,7 +58,7 @@ export default function Home({ nextMeeting, meetings }) {
     <PublicLayout>
       <Hero />
       <PrimaryFeatures />
-      <UpcomingMeetingsBlade nextMeeting={nextMeeting} meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} />
+      {/* <UpcomingMeetingsBlade nextMeeting={nextMeeting} meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} /> */}
       <CallToAction />
       <SecondaryFeatures />
       <Testimonials />

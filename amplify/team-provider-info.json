@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "myfunction": {}
+        "myfunction": {
+          "deploymentBucketName": "amplify-altweb-dev-83522-deployment",
+          "s3Key": "amplify-builds/myfunction-512f5645476c79717067-build.zip"
+        }
+      },
+      "api": {
+        "altweb": {}
       }
     }
   }
