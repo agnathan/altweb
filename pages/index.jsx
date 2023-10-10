@@ -17,7 +17,7 @@ import { PublicLayout } from '@/components/layouts/PublicLayout'
 
 const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async (context) => {
   const currentDateOrig = new Date()
   const sevenDaysInMilliseconds = 7 * 24 * 60 * 60 * 1000;
   const nextWeekDate = new Date(currentDateOrig.getTime() + sevenDaysInMilliseconds);
@@ -34,8 +34,9 @@ export const getServerSideProps = async () => {
     sort: (s) => s.meetingDate(SortDirection.ASCENDING),
     limit: 2
   })
+  // console.log(nextMeetingRES)
   const nextMeeting = JSON.parse(JSON.stringify(nextMeetingRES))
-  console.log(nextMeeting)
+  // console.log(nextMeeting)
 
   const meetingsRES = await DataStore.query(Meeting, (c) => c.and(c => [
     c.meetingDate.gt(currentDate),
@@ -58,7 +59,7 @@ export default function Home({ nextMeeting, meetings }) {
     <PublicLayout>
       <Hero />
       <PrimaryFeatures />
-      {/* <UpcomingMeetingsBlade nextMeeting={nextMeeting} meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} /> */}
+      <UpcomingMeetingsBlade nextMeeting={nextMeeting} meetings={meetings} zoomRegistrationLink={zoomRegistrationLink} />
       <CallToAction />
       <SecondaryFeatures />
       <Testimonials />
