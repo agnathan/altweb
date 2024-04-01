@@ -46,7 +46,7 @@ export const getStaticProps = async (context) => {
     c.meetingDateTime.ne(null)
   ]), {
     sort: (s) => s.meetingDate(SortDirection.ASCENDING),
-    limit: 8
+    limit: 9
   })
 
   const meetings = JSON.parse(JSON.stringify(meetingsRES))
