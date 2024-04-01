@@ -15,7 +15,7 @@ import { Testimonials } from '@/components/Testimonials'
 import { UpcomingMeetingsBlade } from '@/components/UpcomingMeetingsBlade'
 import { PublicLayout } from '@/components/layouts/PublicLayout'
 
-const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
+const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZ0sdu6trzgiEteWCpsNVTeUosePjoZg1NBe"
 
 export const getStaticProps = async (context) => {
   const currentDateOrig = new Date()
