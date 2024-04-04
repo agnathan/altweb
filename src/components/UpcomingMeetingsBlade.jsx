@@ -104,7 +104,7 @@ const features = [
 ]
 
 
-const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZEkc--uqzsiH9WjXaST7jzXzQL3XIrTIsXj"
+const zoomRegistrationLink = "https://us02web.zoom.us/meeting/register/tZ0sdu6trzgiEteWCpsNVTeUosePjoZg1NBe"
 
 function Feature({ feature, isActive, className, ...props }) {
   return (
