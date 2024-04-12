@@ -170,7 +170,7 @@ export default function SpeakerHallofFamePage({ meetings }) {
                 </div>
                 <ul
                     title="list"
-                    className="mx-0 mx-auto mt-20 grid max-w-none grid-cols-4 gap-x-8 gap-y-14"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
                 // className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
                 >
                     {meetings.map((meeting) => (
